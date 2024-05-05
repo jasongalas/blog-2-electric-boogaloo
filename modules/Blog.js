@@ -1,6 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const theDate = require("../utils/date");
 
 class Blog extends Model {
   checkPassword(loginPw) {
@@ -27,6 +26,14 @@ Blog.init(
     username: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    createddate: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    comment: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
   },
   {

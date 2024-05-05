@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root{
+    --light-textColor: black;
+    --dark-textColor: white;
+    --light-bgColor: rgb(192, 192, 192);
+    --dark-bgColor: rgb(87, 87, 87);
+}
+
+.light{
+    background-color: var(--light-bgColor);
+    color: var(--light-textColor);
+}
+
+.dark{
+    background-color: var(--dark-bgColor);
+    color: var(--dark-textColor);
+}
+
+.light header, .light footer{
+    color: var(--light-textColor);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+    
+.dark header, .dark footer{
+    color: var(--dark-textColor);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+header h1{
+    font-style: italic;
+    font-size: 50px;
+    margin-right: auto;
+}
+
+.light nav button{
+    background-color: var(--dark-bgColor);
+    margin-right: 5px;
+}
+
+.dark nav button{
+    background-color: var(--light-bgColor);
+    margin-right: 5px;
+}
+
+.light header a, .light footer a{
+    color: var(--light-textColor);
+}
+
+.dark header a, .dark footer a{
+    color: var(--dark-textColor);
+}
+
+.hero{
+    padding: 5% 10%;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: center;
+    font-style: italic;
+    background-image: url(../images/IMG_9697.jpeg);
+    background-position: center;
+    background-size: cover;
+}
+
+.hero h2{
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.842);
+    font-size: x-large;
+}
+
+main h3{
+    text-align: center;
+    font-size: 35px;
+    padding: 10px;
+}
+
+main p{
+    text-align: center;
+    padding: 5px;
+}
+
+footer{
+    text-align: center;
+    padding-bottom: 3px;
+}
+
+@media screen and (max-width: 992px) {
+    .body {
+      width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .body {
+        width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .body {
+        width: 100%;     
+  }
+}

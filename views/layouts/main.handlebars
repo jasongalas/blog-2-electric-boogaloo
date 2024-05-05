@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../public/css/accent.css">
+    <link rel="stylesheet" href="../../public/css/style.css">
+    <title>Blog 2.0</title>
+</head>
+
+<body class="background light">
+    <header>
+        <h1>Blog About It Again</h1>
+            <nav>
+            <!-- Dark/Lightmode Switcher -->
+            <button class="homepage">Home</button>
+            <button class="dashboard">Dashboard</button>
+            <button class="login-page">Login</button>
+            {{#if logged_in}}
+            <button class="btn" id="logout">logout</button>
+            {{/if}}
+            </nav>
+        </header>
+
+    <section class="hero">
+        <h2>How Have You Been?</h2>
+        </section>
+
+        <main>
+            {{{ body }}}
+        </main>
+
+    <footer id="copyright">&copy<a href="https://jasongalas.github.io/coding-portfolio/">Paws Production</a></footer>
+    {{#if logged_in}}
+  <script src="../../public/js/logout.js"></script>
+    {{/if}}
+    <script src="../../public/js/login.js"></script>
+    <script src="../../public/js/logout.js"></script>
+</body>
+</html>
