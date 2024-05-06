@@ -1,16 +1,43 @@
 const router = require('express').Router();
 const { Blog } = require('../../models');
 
-router.post('/', async (req, res) => {
+// Get all blogs
+router.get('/', async (req, res) => {
   try {
-    const newBlogData = await Blog.create(req.body);
-    res.status(200).json(newBlogData);
+      const blogs = await Blog.findAll();
+      res.json(blogs);
+  } catch (error) {
+      res.status(500).json(error);
+  }
+});
+
+//Get post by ID
+router.get('/:id', async (req, res) => {
+  try {
+      const blog = await Blog.findByPk(req.params.id);
+      if (blog) {
+          res.json(blog);
+      } else {
+          res.status(404).json({ message: "Blog not found" });
+      }
+  } catch (error) {
+      res.status(500).json({ message: "Server error", error: error.message });
+  }
+});
+
+router.post('/write', async (req, res) => {
+  try {
+    const newBlogData = await Blog.create({
+      title: req.body.postTitle,
+      blogcontent: req.body.content
+    });
+    res.status(201).json(newBlogData);
   }catch (err) {
     res.status(400).json(err);
   }
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/write/:id', async (req, res) => {
   try{
     const updateBlogData = await Blog.update(req.body, {
       where: {

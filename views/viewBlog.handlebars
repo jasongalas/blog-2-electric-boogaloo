@@ -1,0 +1,33 @@
+<section>
+<h2>{{blog.title}}</h2>
+<p>{{blog.content}}</p>
+<small>blogged by {{blog.user.username}} on {{blog.createdAt}}</small>
+
+
+
+<form id="comment-form">
+    <textarea name="content" placeholder="Add a comment..." required></textarea>
+    <input type="hidden" name="blogId" value="{{blog.id}}">
+    <input type="hidden" name="userId" value="{{session.userId}}">
+    
+    <button type="submit" id="com-sub">Comment</button>
+</form>
+
+{{#if blog.comments}}
+    <h4>Comments:</h4>
+    <ul>
+        {{#each blog.comments}}
+            <li>
+                <strong>{{this.user.username}}:</strong> {{this.content}}
+                <br>
+                <small>blogged on {{this.createdAt}}</small>
+            </li>
+        {{/each}}
+    </ul>
+
+{{else}}
+    <p>Start the conversation!</p>
+{{/if}}
+</section>
+<script src="../js/blog.js"></script>
+<script src="../js/comment.js"></script>

@@ -1,11 +1,14 @@
-{{#each blogPost as |blog| }}
-<div class="row align-center mb-5">
+<section>
+{{#each blogPost}}
+<div class="blog">
   <div class="col-md-6">
-    <h2>{{blog.postTitle}}</h2>
+    <h2>{{this.postTitle}}</h2>
   </div>
   <div class="col-md-6">
-    <h3>{{blog.username}}</h3>
+    <h3>{{this.username}}</h3>
+    <h3>{{this.createddate}}</h3>
   </div>
-  <div><p>{{blog.content}}</p></div>
+  <div><p>{{this.content}}</p></div>
 </div>
 {{/each}}
+</section>
