@@ -1,19 +1,15 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const sequelize = require('../config/connections');
 
-class Blog extends Model {
-  checkPassword(loginPw) {
-    return bcrypt.compareSync(loginPw, this.password);
-  }
-}
+class Blog extends Model {}
 
 Blog.init(
   {
     id: {
-      type: DataTypes.UUID.V4,
-      defaultValue: sql.uuidV4,
+      type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true,
     },
     postTitle: {
       type: DataTypes.STRING,
@@ -35,14 +31,21 @@ Blog.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
+    user_id:{
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id',
+      }
+    }
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
     modelName: 'blog',
   }
 );
 
-module.exports = User;
+module.exports = Blog;

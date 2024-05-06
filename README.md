@@ -3,7 +3,7 @@ The sequel
 
 ## Description
 
-A blast from the past, we were charged with creating another blog site. So, I decided to reskin my module 4 with the bells and whistles of login capabilities, SQL databases for storing the blog posts, and the ability to comment on other blogs.
+A blast from the past, we were charged with creating another blog site, one with additional functionality. So, I decided to reskin my module 4 with the bells and whistles of login capabilities, SQL databases for storing the blog posts, and the ability to comment on other blogs that were required. Set-up had been something that we'd been taught from the beginning, and set-up was truly the name of the game in this module.
 
 ## Installation
 

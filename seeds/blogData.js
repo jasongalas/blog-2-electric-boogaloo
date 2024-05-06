@@ -2,13 +2,15 @@ const { Blog } = require('../models');
 
 const blogData = [
   {
-    postTitle: "Much ado about nothing",
-    content: "Time keeps on slipping and yet it lingers at the same time.",
-    username: "Paws",
-    comment: "",
+    postTitle: 'Much ado about nothing',
+    content: 'Time keeps on slipping and yet it lingers at the same time.',
+    username: 'Paws',
+    createddate: '4/20/24',
+    comment: '',
+    user_id: 1
   }
 ]
 
-const seedBlogs = () => Blog.bulkCreate(blogData);
+const seedBlog = async () => await Blog.bulkCreate(blogData)
 
-module.exports = seedBlogs;
+module.exports = seedBlog;

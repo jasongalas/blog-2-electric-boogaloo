@@ -1,7 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
-const sequelize = require('../config/connection');
-const theDate = require("../utils/date");
+const sequelize = require('../config/connections');
 
 class User extends Model {
   checkPassword(loginPw) {
@@ -12,22 +11,14 @@ class User extends Model {
 User.init(
   {
     id: {
-      type: DataTypes.UUID.V4,
-      defaultValue: sql.uuidV4,
+      type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true,
     },
     username: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true,
-      },
     },
     password: {
       type: DataTypes.STRING,
@@ -40,7 +31,7 @@ User.init(
   {
     hooks: {
       beforeCreate: async (newUserData) => {
-        newUserData.password = await bcrypt.hash(newUserData.password, theDate);
+        newUserData.password = await bcrypt.hash(newUserData.password, 369);
         return newUserData;
       },
     },
