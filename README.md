@@ -15,7 +15,7 @@ You can access the homepage at any point in time. However, in order to actually 
 
 ## Credits
 
-
+Shoutout to the panic room and the cohort for being in this together. This module was truly overwhelming and challenging all the way around. Turning something in to ensure there's a grade, and hoping to come back to it later and give it an honest fix.
 
 ## License
 
