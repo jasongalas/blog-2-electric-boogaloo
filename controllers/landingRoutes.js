@@ -2,13 +2,9 @@ const router = require('express').Router();
 const authorize = require('../utils/auth');
 const { Blog, User } = require('../models')
 
-router.get('/', authorize, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
 
-    if(!req.session.loggedIn){
-      res.render('login')
-      return;
-  }
   const blogData = await Blog.findAll({
       include: [
           {
@@ -29,10 +25,28 @@ router.get('/', authorize, async (req, res) => {
   }
 });
 
+router.get('/blog/:id', async (req, res) => {
+  try {
+    const blogId = req.params.id;
+    const blog = await Blog.findByPk(blogId, {
+      include: [User]
+    });
+
+    if (!blog) {
+      return res.status(404).send('Blog not found');
+    }
+
+    const blogData = blog.get({ plain: true });
+    res.render('blog', { blog: blogData, loggedIn: req.session.loggedIn });
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
+
 router.get('/login', (req, res) => {
-  
-  if (req.session.logged_in) {
-    res.redirect('/');
+  // If the user is already logged in, redirect the request to another route
+  if (req.session.loggedIn) {
+    res.redirect('/dashboard');
     return;
   }
 

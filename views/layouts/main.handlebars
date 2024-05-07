@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../../public/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <title>Blog 2.0</title>
 </head>
 
@@ -12,9 +12,9 @@
         <h1>Blog About It Again</h1>
             <nav>
             <!-- Dark/Lightmode Switcher -->
-            <button class="homepage">Home</button>
-            <button class="dashboard">Dashboard</button>
-            <button class="login-page">Login</button>
+            <button id="homepage">Home</button>
+            <button id="dashboard">Dashboard</button>
+            <button id="login-page">Login</button>
             {{#if logged_in}}
             <button class="btn" id="logout">logout</button>
             {{/if}}
@@ -31,9 +31,9 @@
 
     <footer id="copyright">&copy<a href="https://jasongalas.github.io/coding-portfolio/">Paws Production</a></footer>
     {{#if logged_in}}
-  <script src="../../public/js/logout.js"></script>
+  <script src="/js/logout.js"></script>
     {{/if}}
-    <script src="../../public/js/login.js"></script>
-    <script src="../../public/js/signup.js"></script>
+    <script src="/js/login.js"></script>
+    <script src="/js/signup.js"></script>
 </body>
 </html>
