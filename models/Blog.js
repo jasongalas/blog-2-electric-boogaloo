@@ -30,6 +30,10 @@ Blog.init(
     comment: {
       type: DataTypes.STRING,
       allowNull: true,
+      references: {
+        model: 'comment',
+        key: 'id',
+      }
     },
     user_id:{
       type: DataTypes.INTEGER,
